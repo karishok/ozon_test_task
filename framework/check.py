@@ -22,7 +22,7 @@ def check_get_post(response, key, key_value):
         res = response.json()[0][key]
     else:
         res = response.json()[key]
-    assert_that(res, equal_to(key_value), "Wrong")
+    assert_that(res, equal_to(key_value), "Wrong post return from server")
 
 
 @allure.step
