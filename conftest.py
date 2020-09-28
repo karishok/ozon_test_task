@@ -1,5 +1,5 @@
 import pytest
-from random import choice, randint
+from random import randint, sample
 from string import printable
 
 
@@ -8,6 +8,6 @@ def generate_post():
     return {
         "id": randint(100, 140),
         "userId": randint(1, 11),
-        "title": ''.join(choice(printable) for i in range(randint(5, 30))),
-        "body": ''.join(choice(printable) for i in range(randint(20, 50)))
+        "title": ''.join(sample(printable, randint(5, 30))),
+        "body": ''.join(sample(printable, randint(20, 50)))
     }

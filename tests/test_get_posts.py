@@ -5,7 +5,7 @@ from framework.helper import get_random_post
 import pytest
 
 
-@allure.suite('GET /posts')
+@allure.suite('GET')
 class TestGetPosts:
 
     # позитивный тест на получение всех постов
@@ -49,11 +49,13 @@ class TestGetPosts:
         check_status_code(response)
 
 
+@allure.suite('POST')
 class TestSendPosts:
-    # фикстура для генерации поста 
+    # фикстура для генерации поста
     # позитивный тест на добавление нового поста (POST)
     @allure.title('Positive. Add new post')
     def test_positive_add_post(self, generate_post):
         payload = generate_post
+        print(payload)
         response = Client().post_new_posts(payload)
         check_add_post(payload, response)
