@@ -26,8 +26,7 @@ class TestGetPosts:
     @allure.title('Negative. Get post by id')
     @pytest.mark.xfail
     def test_negative_get_post_by_id(self):
-        post_id = 120
-        response = Client().get_posts_by_id(post_id)
+        response = Client().get_posts_by_id(post_id=120)
         check_status_code(response)
 
     # тест с параметризацей
@@ -44,8 +43,7 @@ class TestGetPosts:
     #  свой тест на получение завершенных todos
     @allure.title('Positive. Get completed todos')
     def test_get_only_completed_todos(self):
-        is_completed = "true"
-        response = Client().get_only_completed_todos(is_completed)
+        response = Client().get_only_completed_todos(is_completed="true")
         check_status_code(response)
 
 
@@ -56,6 +54,5 @@ class TestSendPosts:
     @allure.title('Positive. Add new post')
     def test_positive_add_post(self, generate_post):
         payload = generate_post
-        print(payload)
         response = Client().post_new_posts(payload)
         check_add_post(payload, response)
