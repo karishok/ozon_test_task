@@ -50,7 +50,7 @@ class TestGetPosts:
 
 
 class TestSendPosts:
-    # фикстура для проверки готовности сайта
+    # фикстура для генерации поста 
     # позитивный тест на добавление нового поста (POST)
     @allure.title('Positive. Add new post')
     def test_positive_add_post(self, generate_post):
